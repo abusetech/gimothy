@@ -15,7 +15,8 @@ Setting Gimothy up is easy! Just copy gim.py to a directory in your $PATH and cr
 
 ### 1) Create the Gimothy configuration directory and template
 
-`$mkdir -p ~/.local/gim/gim.json`
+`$mkdir -p ~/.local/gim/`
+
 `$cp gim.example.json ~/.local/gim/gim.json`
 
 ### 2) Edit the configuration
