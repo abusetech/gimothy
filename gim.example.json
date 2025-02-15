@@ -1,0 +1,9 @@
+{
+    "identities": {
+        "<identity name>" : {
+            "privateKey" : "/full/path/to/private/key",
+            "user.name" : "your git username",
+            "user.email" : "your git gmail"
+        }
+    }
+}
