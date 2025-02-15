@@ -5,12 +5,13 @@ Git Identity Manager (GIM) is short for Gimothy. A tool for managing multiple gi
 
 Lots of Github accounts? Do you need separate ones for work, personal projects or software contracting? Your friend Gimothy is here to help!
 
-Gimothy is lightweight, written in Python and Python is Gimothy's only dependancy. Gimothy is open source and at around 100 lines of Python,
-Gimothy is very easy to audit! Seriously, go do it! Don't just blindly run code that you find on GitHub!
+Gimothy is lightweight, written in Python and Python is also Gimothy's only dependancy. 
+
+Gimothy is open source and at around 100 lines of Python, Gimothy is very easy to audit! Seriously, go do it! Don't just blindly run code that you find on GitHub!
 
 ## Install
 
-Setting Gimothy up is easy! Just create a gim.json configuration file in ~/.local/gim/gim.json. See the included gim.example.json for the format of this file.
+Setting Gimothy up is easy! Just copy gim.py to a directory in your $PATH and create a gim.json configuration file in ~/.local/gim/gim.json. See the included gim.example.json for the format of this file.
 
 ### 1) Create the Gimothy configuration directory and template
 
