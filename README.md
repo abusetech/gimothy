@@ -41,6 +41,6 @@ Now whenever you want to use a git command, simply replace git with gim:
 
 `$gim status`
 
-Initializing a project with Gimothy leaves a .gim file in the project drirectory, so you may wish to ass this file to you .gitignore:
+Initializing a project with Gimothy leaves a .gim file in the project drirectory, so you may wish to add this file to you .gitignore:
 
 `$echo .gim >> .gitignore`
