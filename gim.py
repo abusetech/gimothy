@@ -81,7 +81,7 @@ project_identity = global_config["identities"][project_identity_name]
 
 #These checks are skipped for the "git clone" command so that a particular 
 #identity may be used while cloning by placing a .gim file in the directory you are cloning into
-if not (len(sys.argv) >= 1 and sys.argv[1] == "clone"):
+if not (len(sys.argv) >= 2 and sys.argv[1] == "clone"):
     ret = subprocess.run(["git", "config", "user.email"], capture_output=True)
     if (ret.stdout.decode().strip() != project_identity["user.email"]):
         print(f"The email configured in git ({ret.stdout.decode().strip()}) does not match the email in the identity for this project.")
