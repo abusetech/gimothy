@@ -30,6 +30,7 @@ If you need to generate additional ssh keys (so that you can have one for each a
 Put gim.py somewhere in your $PATH and make it executable. ~/.local/bin is often a good place. Optionally, also rename gim.py to remove the Python extension:
 
 `$cp gim.py ~/.local/bin/gim`
+
 `$chmod +x ~/.local/bin/gim`
 
 ## Running Gimothy

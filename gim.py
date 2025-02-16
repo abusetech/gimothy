@@ -78,21 +78,26 @@ else:
 
 project_identity_name = project_config["identity"]
 project_identity = global_config["identities"][project_identity_name]
-ret = subprocess.run(["git", "config", "user.email"], capture_output=True)
-if (ret.stdout.decode().strip() != project_identity["user.email"]):
-    print(f"The email configured in git ({ret.stdout.decode().strip()}) does not match the email in the identity for this project.")
-    print(f"You might correct this by configuring it in git with \"git config user.email {project_identity["user.email"]}\"")
-    sys.exit(1)
-ret = subprocess.run(["git", "config", "user.name"], capture_output=True)
-if (ret.stdout.decode().strip() != project_identity["user.name"]):
-    print(f"The user name ({ret.stdout.decode().strip()}) configured in git does not match the email in the identity for this project.")
-    print(f"You might correct this by configuring it in git with \"git config user.name {project_identity["user.name"]}\"")
-    sys.exit(1)
 
-#Ensure that the identity file actually exists and is a vali path
+#These checks are skipped for the "git clone" command so that a particular 
+#identity may be used while cloning by placing a .gim file in the directory you are cloning into
+if not (len(sys.argv) >= 1 and sys.argv[1] == "clone"):
+    ret = subprocess.run(["git", "config", "user.email"], capture_output=True)
+    if (ret.stdout.decode().strip() != project_identity["user.email"]):
+        print(f"The email configured in git ({ret.stdout.decode().strip()}) does not match the email in the identity for this project.")
+        print(f"You might correct this by configuring it in git with \"git config user.email {project_identity["user.email"]}\"")
+        sys.exit(1)
+    ret = subprocess.run(["git", "config", "user.name"], capture_output=True)
+    if (ret.stdout.decode().strip() != project_identity["user.name"]):
+        print(f"The user name ({ret.stdout.decode().strip()}) configured in git does not match the email in the identity for this project.")
+        print(f"You might correct this by configuring it in git with \"git config user.name {project_identity["user.name"]}\"")
+        sys.exit(1)
+
+#Ensure that the identity file actually exists and is a valid path
 if not os.path.exists(os.path.expanduser(project_identity["privateKey"])):
     print(f"The configured key file for {project_identity_name} could not be located.")
     sys.exit(1)
+
 #Everything seems good up to this point. We can now actually run git.
 envrionment_str = f"GIT_SSH_COMMAND=\"ssh -o IdentitiesOnly=yes -i {project_identity["privateKey"]}\""
 cmd_str = ' '.join(sys.argv[1:])
