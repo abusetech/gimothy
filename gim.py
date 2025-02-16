@@ -105,9 +105,3 @@ env_dict["GIT_SSH_COMMAND"] = f"ssh -o IdentitiesOnly=yes -i {project_identity["
 cmd_args = ["git"] + sys.argv[1:]
 print(f"Gim is using the identity: {project_identity_name}")
 subprocess.run(cmd_args, env=env_dict)
-
-#envrionment_str = f"GIT_SSH_COMMAND=\"ssh -o IdentitiesOnly=yes -i {project_identity["privateKey"]}\""
-#cmd_str = ' '.join(sys.argv[1:])
-#print(f"Gim is using the identity: {project_identity_name}")
-#print("Gim is executing: " + envrionment_str + " git " + cmd_str)
-#os.system (envrionment_str + " git " + cmd_str)
